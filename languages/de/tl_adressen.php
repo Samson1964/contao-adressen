@@ -23,6 +23,9 @@ $GLOBALS["TL_LANG"]["tl_adressen"]["titel"][1] = "Geben Sie hier den Titel ein, 
 $GLOBALS["TL_LANG"]["tl_adressen"]["firma"][0] = "Firma";
 $GLOBALS["TL_LANG"]["tl_adressen"]["firma"][1] = "Geben Sie hier den Firmennamen ein.";
 
+$GLOBALS["TL_LANG"]["tl_adressen"]["club"][0] = "Verein";
+$GLOBALS["TL_LANG"]["tl_adressen"]["club"][1] = "Geben Sie hier den Verein der Person ein.";
+
 $GLOBALS["TL_LANG"]["tl_adressen"]["adresse_legende"] = "Anschrift";
 
 $GLOBALS["TL_LANG"]["tl_adressen"]["strasse_view"][0] = "Straße veröffentlichen";
@@ -39,6 +42,14 @@ $GLOBALS["TL_LANG"]["tl_adressen"]["plz"][1] = "Geben Sie hier die Postleitzahl 
 
 $GLOBALS["TL_LANG"]["tl_adressen"]["ort"][0] = "Ort";
 $GLOBALS["TL_LANG"]["tl_adressen"]["ort"][1] = "Geben Sie hier den Ort ein.";
+
+$GLOBALS["TL_LANG"]["tl_adressen"]["funktionen_legende"] = "Funktionen";
+
+$GLOBALS["TL_LANG"]["tl_adressen"]["wertungsreferent"][0] = "Wertungsreferent";
+$GLOBALS["TL_LANG"]["tl_adressen"]["wertungsreferent"][1] = "Wählen Sie hier die Wertungsreferate der Person aus.";
+
+$GLOBALS["TL_LANG"]["tl_adressen"]["funktionen"][0] = "Andere Funktionen";
+$GLOBALS["TL_LANG"]["tl_adressen"]["funktionen"][1] = "Wählen Sie hier die Funktionen der Person aus.";
 
 $GLOBALS["TL_LANG"]["tl_adressen"]["telefon_legende"] = "Telefon";
 
@@ -90,6 +101,17 @@ $GLOBALS["TL_LANG"]["tl_adressen"]["email5"][1] = "Geben Sie hier eine fünfte E
 
 $GLOBALS["TL_LANG"]["tl_adressen"]["email6"][0] = "E-Mail 6";
 $GLOBALS["TL_LANG"]["tl_adressen"]["email6"][1] = "Geben Sie hier eine sechste E-Mail-Adresse ein.";
+
+$GLOBALS["TL_LANG"]["tl_adressen"]["bank_legend"] = "Bankverbindung";
+
+$GLOBALS["TL_LANG"]["tl_adressen"]["inhaber"][0] = "Kontoinhaber";
+$GLOBALS["TL_LANG"]["tl_adressen"]["inhaber"][1] = "Name des Kontoinhabers";
+
+$GLOBALS["TL_LANG"]["tl_adressen"]["iban"][0] = "IBAN";
+$GLOBALS["TL_LANG"]["tl_adressen"]["iban"][1] = "IBAN";
+
+$GLOBALS["TL_LANG"]["tl_adressen"]["bic"][0] = "BIC";
+$GLOBALS["TL_LANG"]["tl_adressen"]["bic"][1] = "BIC";
 
 $GLOBALS["TL_LANG"]["tl_adressen"]["web_legende"] = "Soziale Netzwerke und Homepage";
 
@@ -162,6 +184,9 @@ $GLOBALS["TL_LANG"]["tl_adressen"]["info"][1] = "Geben Sie hier interne Bemerkun
 $GLOBALS["TL_LANG"]["tl_adressen"]["links"][0] = "Verlinkungen";
 $GLOBALS["TL_LANG"]["tl_adressen"]["links"][1] = "Die Adresse ist in den hier genannten Seiten eingetragen. Diese Übersicht wird einmal nachts aktualisiert.";
 
+$GLOBALS["TL_LANG"]["tl_adressen"]["source"][0] = "Quelle";
+$GLOBALS["TL_LANG"]["tl_adressen"]["source"][1] = "Ursprüngliche Quelle der Daten";
+
 $GLOBALS["TL_LANG"]["tl_adressen"]["aktiv_legende"] = "Aktivieren";
 
 $GLOBALS["TL_LANG"]["tl_adressen"]["aktiv"][0] = "Aktiv";
@@ -171,6 +196,10 @@ $GLOBALS["TL_LANG"]["tl_adressen"]["alias_legende"] = "Alias";
 
 $GLOBALS["TL_LANG"]["tl_adressen"]["alias"][0] = "Alias";
 $GLOBALS["TL_LANG"]["tl_adressen"]["alias"][1] = "Das Alias wird automatisch beim Speichern aus Vor- und Nachname generiert, wenn das Feld leer ist.";
+
+$GLOBALS["TL_LANG"]["tl_adressen"]["searchstring"][0] = "Volltextsuche";
+$GLOBALS["TL_LANG"]["tl_adressen"]["searchstring"][1] = "Daten für Volltextsuche";
+
 
 /**
  * Buttons für Operationen

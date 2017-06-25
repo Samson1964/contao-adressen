@@ -1,4 +1,6 @@
-<?php if (!defined('TL_ROOT')) die('You cannot access this file directly!');
+<?php
+
+namespace Samson\Adressen;
 
 /*
  * Ersetzt den Tag {{adresse::ID}} bzw. {{adresse::ID::Funktion}}

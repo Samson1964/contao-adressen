@@ -3,14 +3,18 @@
 /**
  * Paletten
  */
-$GLOBALS['TL_DCA']['tl_content']['palettes']['adressen'] = '{type_legend},type,headline;{adresse_legend},adresse_id,adresse_funktion,adresse_zusatz,adresse_tpl,adresse_bildvorschau,adresse_viewfoto;{adressbild_legend:hide},addImage;{protected_legend:hide},protected;{expert_legend:hide},guest,cssID,space;{invisible_legend:hide},invisible,start,stop';
+$GLOBALS['TL_DCA']['tl_content']['palettes']['__selector__'][] = 'adresse_selectmails';
 
+$GLOBALS['TL_DCA']['tl_content']['palettes']['adressen'] = '{type_legend},type,headline;{adresse_legend},adresse_id,adresse_funktion,adresse_zusatz,adresse_tpl,adresse_bildvorschau,adresse_viewfoto,adresse_selectmails;{adressbild_legend:hide},addImage;{protected_legend:hide},protected;{expert_legend:hide},guest,cssID,space;{invisible_legend:hide},invisible,start,stop';
+
+// Subpalettes
+$GLOBALS['TL_DCA']['tl_content']['subpalettes']['adresse_selectmails'] = 'adresse_mails';
+	
 /**
  * Felder
  */
 
 // Adressenliste anzeigen
-
 $GLOBALS['TL_DCA']['tl_content']['fields']['adresse_id'] = array
 (
 	'label'                => &$GLOBALS['TL_LANG']['tl_content']['adresse_id'],
@@ -32,7 +36,6 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['adresse_id'] = array
 );
 
 // Funktion (wird vor dem Namen angezeigt)
-
 $GLOBALS['TL_DCA']['tl_content']['fields']['adresse_funktion'] = array
 (
 	'label'                => &$GLOBALS['TL_LANG']['tl_content']['adresse_funktion'],
@@ -44,7 +47,6 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['adresse_funktion'] = array
 );
 
 // Zusatztext (wird zwischen der Funktion und dem Namen angezeigt)
-
 $GLOBALS['TL_DCA']['tl_content']['fields']['adresse_zusatz'] = array
 (
 	'label'                => &$GLOBALS['TL_LANG']['tl_content']['adresse_zusatz'],
@@ -56,7 +58,6 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['adresse_zusatz'] = array
 );
 
 // Template zuweisen
-
 $GLOBALS['TL_DCA']['tl_content']['fields']['adresse_tpl'] = array
 (
 	'label'                => &$GLOBALS['TL_LANG']['tl_content']['adresse_tpl'],
@@ -68,7 +69,6 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['adresse_tpl'] = array
 ); 
 
 // Zeigt das Standardfoto aus tl_adressen an
-
 $GLOBALS['TL_DCA']['tl_content']['fields']['adresse_bildvorschau'] = array
 (
 	'exclude'              => true,
@@ -76,16 +76,45 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['adresse_bildvorschau'] = array
 ); 
 
 // Foto anzeigen ja/nein?
-
 $GLOBALS['TL_DCA']['tl_content']['fields']['adresse_viewfoto'] = array
 (
-	'label'         => &$GLOBALS['TL_LANG']['tl_content']['adresse_viewfoto'],
-	'inputType'     => 'checkbox',
-	'default'       => true,
-	'eval'          => array('tl_class' => 'w50', 'isBoolean' => true),
-	'sql'           => "char(1) NOT NULL default ''",
+	'label'                => &$GLOBALS['TL_LANG']['tl_content']['adresse_viewfoto'],
+	'inputType'            => 'checkbox',
+	'default'              => true,
+	'eval'                 => array('tl_class' => 'w50', 'isBoolean' => true),
+	'sql'                  => "char(1) NOT NULL default ''",
 );
-		
+
+// Nur bestimmte Adressen aktivieren einschalten
+$GLOBALS['TL_DCA']['tl_content']['fields']['adresse_selectmails'] = array
+(
+	'label'                => &$GLOBALS['TL_LANG']['tl_content']['adresse_selectmails'],
+	'exclude'              => true,
+	'filter'               => true,
+	'inputType'            => 'checkbox',
+	'eval'                 => array
+	(
+		'submitOnChange'   => true,
+		'tl_class'         => 'clr w50'
+	),
+	'sql'                  => "char(1) NOT NULL default ''"
+);
+
+// Anzuzeigende Adressen auswählen
+$GLOBALS['TL_DCA']['tl_content']['fields']['adresse_mails'] = array
+(
+	'label'                => &$GLOBALS['TL_LANG']['tl_content']['adresse_mails'],
+	'exclude'              => true,
+	'inputType'            => 'checkboxWizard',
+	'options_callback'     => array('tl_content_adresse', 'getMails'),
+	'eval'                 => array
+	(
+		'tl_class'         => 'w50', 
+		'multiple'         => true
+	),
+	'sql'                  => "varchar(64) NOT NULL default ''"
+);
+
 /*****************************************
  * Klasse tl_content_adresse
  *****************************************/
@@ -126,6 +155,24 @@ class tl_content_adresse extends Backend
 			($objAdresse->aktiv) ? $aktivstatus = '' : $aktivstatus = $GLOBALS['TL_LANG']['tl_content']['adresse_nichtaktiv'];
 			($objAdresse->vorname) ? $array[$objAdresse->id] = $objAdresse->nachname.','.$objAdresse->vorname.$aktivstatus : $array[$objAdresse->id] = $objAdresse->nachname.$aktivstatus;
 		}
+		return $array;
+
+	}
+
+	public function getMails(DataContainer $dc)
+	{
+		//print_r($dc);
+		$array = array();
+		$objAdresse = $this->Database->prepare("SELECT * FROM tl_adressen WHERE id = ?")
+		                             ->execute($dc->activeRecord->adresse_id);
+
+		$objAdresse->email1 ? $array[1] = $objAdresse->email1 : '';
+		$objAdresse->email2 ? $array[2] = $objAdresse->email2 : '';
+		$objAdresse->email3 ? $array[3] = $objAdresse->email3 : '';
+		$objAdresse->email4 ? $array[4] = $objAdresse->email4 : '';
+		$objAdresse->email5 ? $array[5] = $objAdresse->email5 : '';
+		$objAdresse->email6 ? $array[6] = $objAdresse->email6 : '';
+
 		return $array;
 
 	}

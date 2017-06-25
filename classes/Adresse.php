@@ -1,5 +1,7 @@
 <?php
 
+namespace Samson\Adressen;
+
 class adresseClass extends \ContentElement
 {
 
@@ -81,16 +83,30 @@ class adresseClass extends \ContentElement
 					if($objAdresse->telefax2) $telefax[] = $objAdresse->telefax2;
 				}
 
+				// Erlaubte E-Mail-Adressen feststellen
+				$mailErlaubtArr = array(1 => true, 2 => true, 3 => true, 4 => true, 5 => true, 6 => true);
+				if($this->adresse_selectmails)
+				{
+					$erlaubtArr = unserialize($this->adresse_mails);
+					for($x=1; $x<=6; $x++)
+					{
+						if(in_array($x, $erlaubtArr) == false) 
+						{
+							$mailErlaubtArr[$x] = false;
+						}
+					}
+				}
+					
 				// Email-Array erstellen
 				if($objAdresse->email_view)
 				{
 					$email = array();
-					if($objAdresse->email1) $email[] = $objAdresse->email1;
-					if($objAdresse->email2) $email[] = $objAdresse->email2;
-					if($objAdresse->email3) $email[] = $objAdresse->email3;
-					if($objAdresse->email4) $email[] = $objAdresse->email4;
-					if($objAdresse->email5) $email[] = $objAdresse->email5;
-					if($objAdresse->email6) $email[] = $objAdresse->email6;
+					if($objAdresse->email1 && $mailErlaubtArr[1]) $email[] = $objAdresse->email1;
+					if($objAdresse->email2 && $mailErlaubtArr[2]) $email[] = $objAdresse->email2;
+					if($objAdresse->email3 && $mailErlaubtArr[3]) $email[] = $objAdresse->email3;
+					if($objAdresse->email4 && $mailErlaubtArr[4]) $email[] = $objAdresse->email4;
+					if($objAdresse->email5 && $mailErlaubtArr[5]) $email[] = $objAdresse->email5;
+					if($objAdresse->email6 && $mailErlaubtArr[6]) $email[] = $objAdresse->email6;
 				}
 
 				// Bild-Elemente erstellen
@@ -182,7 +198,7 @@ class adresseClass extends \ContentElement
 	 * @param: zu prüfende Nummer
 	 * @return: true = ja, Mobilfunknummer
 	 */
-	protected function Mobilfunk($nummer)
+	static function Mobilfunk($nummer)
 	{
 
 		$vorwahl = substr($nummer,0,4);

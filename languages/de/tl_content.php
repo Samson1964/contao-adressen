@@ -14,6 +14,10 @@ $GLOBALS['TL_LANG']['tl_content']['adresse_bildvorschau_fehlt']['0'] = "Kein Sta
 $GLOBALS['TL_LANG']['tl_content']['adresse_bildvorschau_fehlt']['1'] = "";
 $GLOBALS['TL_LANG']['tl_content']['adresse_viewfoto']['0'] = "Bild anzeigen";
 $GLOBALS['TL_LANG']['tl_content']['adresse_viewfoto']['1'] = "Standardbild bzw. alternatives Bild anzeigen.";
+$GLOBALS['TL_LANG']['tl_content']['adresse_selectmails']['0'] = "Nur bestimmte E-Mail-Adressen anzeigen";
+$GLOBALS['TL_LANG']['tl_content']['adresse_selectmails']['1'] = "Anzeige der E-Mail-Adressen einschränken";
+$GLOBALS['TL_LANG']['tl_content']['adresse_mails']['0'] = "E-Mail-Adressen auswählen";
+$GLOBALS['TL_LANG']['tl_content']['adresse_mails']['1'] = "Nur aktivierte E-Mail-Adressen werden angezeigt.";
 
 $GLOBALS['TL_LANG']['tl_content']['adresse_legend'] = 'Einstellungen';
 $GLOBALS['TL_LANG']['tl_content']['adressbild_legend'] = 'Alternatives Bild (überschreibt Standardbild)';
