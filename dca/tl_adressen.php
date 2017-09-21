@@ -242,7 +242,7 @@ $GLOBALS['TL_DCA']['tl_adressen'] = array
 			'exclude'                 => true,
 			'inputType'               => 'checkboxWizard',
 			'options_callback'        => array('tl_adressen', 'getReferenten'),
-			'eval'                    => array('tl_class'=>'w50', 'multiple'=>true),
+			'eval'                    => array('tl_class'=>'w50 clr', 'multiple'=>true),
 			'sql'                     => "blob NULL"
 		),
 		'funktionen' => array
@@ -452,7 +452,7 @@ $GLOBALS['TL_DCA']['tl_adressen'] = array
 			'sorting'                 => true,
 			'flag'                    => 1,
 			'search'                  => false,
-			'eval'                    => array('mandatory'=>false, 'tl_class'=>'long'),
+			'eval'                    => array('mandatory'=>false, 'tl_class'=>'long clr'),
 			'sql'                     => "text NULL"
 		),
 		'facebook' => array
