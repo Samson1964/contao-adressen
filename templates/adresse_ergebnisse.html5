@@ -1,7 +1,7 @@
 <?php //$this->showTemplateVars(); ?>
 
 <?php
-	$GLOBALS['TL_JAVASCRIPT'][] = 'system/modules/adressen/assets/js/clipboard.min.js';
+	$GLOBALS['TL_BODY'][] = 'system/modules/adressen/assets/js/adressen.js';
 ?>
 
 <div class="<?php echo $this->class; ?> block"<?php echo $this->cssID; ?><?php if ($this->style): ?> style="<?php echo $this->style; ?>"<?php endif; ?>>
@@ -51,17 +51,17 @@
 					clipboard.on('error', function(e) {
 					    console.log(e);
 					});
-    
+
 					</script>				
 					<?php foreach($this->Ergebnisliste as $item): ?>
 						<?php $checked = false; ?>
-						<?php if($ja == true): ?>
-							<?php if($item['email1']): ?><input type="checkbox" name="email_aktiv" value="<?= $item['vorname'] ?> <?= $item['nachname'] ?> &lt;<?= $item['email1'] ?>&gt;"<?php if(!$checked): ?> checked<?php $checked = true; ?><?php endif; ?>> <?= $item['vorname'] ?> <?= $item['nachname'] ?> &lt;<?= $item['email1'] ?>&gt;<br><?php endif; ?>
-							<?php if($item['email2']): ?><input type="checkbox" name="email_aktiv" value="<?= $item['vorname'] ?> <?= $item['nachname'] ?> &lt;<?= $item['email2'] ?>&gt;"<?php if(!$checked): ?> checked<?php $checked = true; ?><?php endif; ?>> <?= $item['vorname'] ?> <?= $item['nachname'] ?> &lt;<?= $item['email2'] ?>&gt;<br><?php endif; ?>
-							<?php if($item['email3']): ?><input type="checkbox" name="email_aktiv" value="<?= $item['vorname'] ?> <?= $item['nachname'] ?> &lt;<?= $item['email3'] ?>&gt;"<?php if(!$checked): ?> checked<?php $checked = true; ?><?php endif; ?>> <?= $item['vorname'] ?> <?= $item['nachname'] ?> &lt;<?= $item['email3'] ?>&gt;<br><?php endif; ?>
-							<?php if($item['email4']): ?><input type="checkbox" name="email_aktiv" value="<?= $item['vorname'] ?> <?= $item['nachname'] ?> &lt;<?= $item['email4'] ?>&gt;"<?php if(!$checked): ?> checked<?php $checked = true; ?><?php endif; ?>> <?= $item['vorname'] ?> <?= $item['nachname'] ?> &lt;<?= $item['email4'] ?>&gt;<br><?php endif; ?>
-							<?php if($item['email5']): ?><input type="checkbox" name="email_aktiv" value="<?= $item['vorname'] ?> <?= $item['nachname'] ?> &lt;<?= $item['email5'] ?>&gt;"<?php if(!$checked): ?> checked<?php $checked = true; ?><?php endif; ?>> <?= $item['vorname'] ?> <?= $item['nachname'] ?> &lt;<?= $item['email5'] ?>&gt;<br><?php endif; ?>
-							<?php if($item['email6']): ?><input type="checkbox" name="email_aktiv" value="<?= $item['vorname'] ?> <?= $item['nachname'] ?> &lt;<?= $item['email6'] ?>&gt;"<?php if(!$checked): ?> checked<?php $checked = true; ?><?php endif; ?>> <?= $item['vorname'] ?> <?= $item['nachname'] ?> &lt;<?= $item['email6'] ?>&gt;<br><?php endif; ?>
+						<?php if($ja == false): ?>
+							<?php if($item['email1']): ?><input type="checkbox" name="email_aktiv[]" value="<?= $item['vorname'] ?> <?= $item['nachname'] ?> &lt;<?= $item['email1'] ?>&gt;"<?php if(!$checked): ?> checked<?php $checked = true; ?><?php endif; ?>> <?= $item['vorname'] ?> <?= $item['nachname'] ?> &lt;<?= $item['email1'] ?>&gt;<br><?php endif; ?>
+							<?php if($item['email2']): ?><input type="checkbox" name="email_aktiv[]" value="<?= $item['vorname'] ?> <?= $item['nachname'] ?> &lt;<?= $item['email2'] ?>&gt;"<?php if(!$checked): ?> checked<?php $checked = true; ?><?php endif; ?>> <?= $item['vorname'] ?> <?= $item['nachname'] ?> &lt;<?= $item['email2'] ?>&gt;<br><?php endif; ?>
+							<?php if($item['email3']): ?><input type="checkbox" name="email_aktiv[]" value="<?= $item['vorname'] ?> <?= $item['nachname'] ?> &lt;<?= $item['email3'] ?>&gt;"<?php if(!$checked): ?> checked<?php $checked = true; ?><?php endif; ?>> <?= $item['vorname'] ?> <?= $item['nachname'] ?> &lt;<?= $item['email3'] ?>&gt;<br><?php endif; ?>
+							<?php if($item['email4']): ?><input type="checkbox" name="email_aktiv[]" value="<?= $item['vorname'] ?> <?= $item['nachname'] ?> &lt;<?= $item['email4'] ?>&gt;"<?php if(!$checked): ?> checked<?php $checked = true; ?><?php endif; ?>> <?= $item['vorname'] ?> <?= $item['nachname'] ?> &lt;<?= $item['email4'] ?>&gt;<br><?php endif; ?>
+							<?php if($item['email5']): ?><input type="checkbox" name="email_aktiv[]" value="<?= $item['vorname'] ?> <?= $item['nachname'] ?> &lt;<?= $item['email5'] ?>&gt;"<?php if(!$checked): ?> checked<?php $checked = true; ?><?php endif; ?>> <?= $item['vorname'] ?> <?= $item['nachname'] ?> &lt;<?= $item['email5'] ?>&gt;<br><?php endif; ?>
+							<?php if($item['email6']): ?><input type="checkbox" name="email_aktiv[]" value="<?= $item['vorname'] ?> <?= $item['nachname'] ?> &lt;<?= $item['email6'] ?>&gt;"<?php if(!$checked): ?> checked<?php $checked = true; ?><?php endif; ?>> <?= $item['vorname'] ?> <?= $item['nachname'] ?> &lt;<?= $item['email6'] ?>&gt;<br><?php endif; ?>
 						<?php else: ?>
 							<?php if($item['email1']): ?><?= $item['vorname'] ?> <?= $item['nachname'] ?> &lt;<?= $item['email1'] ?>&gt;<br> <?php endif; ?>
 							<?php if($item['email2']): ?><?= $item['vorname'] ?> <?= $item['nachname'] ?> &lt;<?= $item['email2'] ?>&gt;<br> <?php endif; ?>
@@ -71,8 +71,8 @@
 							<?php if($item['email6']): ?><?= $item['vorname'] ?> <?= $item['nachname'] ?> &lt;<?= $item['email6'] ?>&gt;<br> <?php endif; ?>
 						<?php endif; ?>
 					<?php endforeach; ?>
-					<div id="gescheckt"></div>
-					<!--<button class="btn" data-clipboard-action="copy" data-clipboard-target=".trefferliste">Kopieren (funktioniert noch nicht)</button>-->
+						<div id="gescheckt"></div>
+					<button onclick="copy();">Kopieren</button>
 				<?php else: ?>
 					<ul>
 					<?php foreach($this->Ergebnisliste as $item): ?>
