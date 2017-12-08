@@ -45,6 +45,13 @@ $GLOBALS['TL_DCA']['tl_adressen'] = array
 		),
 		'global_operations' => array
 		(
+			'categories' => array
+			(
+				'label'               => &$GLOBALS['TL_LANG']['tl_adressen']['categories'],
+				'href'                => 'table=tl_adressen_categories',
+				'icon'                => 'system/modules/adressen/assets/images/categories.png',
+				'attributes'          => 'onclick="Backend.getScrollOffset();"'
+			),
 			'import' => array
 			(
 				'label'               => &$GLOBALS['TL_LANG']['tl_adressen']['import'],
@@ -240,6 +247,7 @@ $GLOBALS['TL_DCA']['tl_adressen'] = array
 		(
 			'label'                   => &$GLOBALS['TL_LANG']['tl_adressen']['wertungsreferent'],
 			'exclude'                 => true,
+			'filter'                  => true,
 			'inputType'               => 'checkboxWizard',
 			'options_callback'        => array('tl_adressen', 'getReferenten'),
 			'eval'                    => array('tl_class'=>'w50 clr', 'multiple'=>true),

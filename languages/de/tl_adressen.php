@@ -43,13 +43,13 @@ $GLOBALS["TL_LANG"]["tl_adressen"]["plz"][1] = "Geben Sie hier die Postleitzahl 
 $GLOBALS["TL_LANG"]["tl_adressen"]["ort"][0] = "Ort";
 $GLOBALS["TL_LANG"]["tl_adressen"]["ort"][1] = "Geben Sie hier den Ort ein.";
 
-$GLOBALS["TL_LANG"]["tl_adressen"]["funktionen_legende"] = "Funktionen";
+$GLOBALS["TL_LANG"]["tl_adressen"]["funktionen_legende"] = "Funktionen und Kategorien";
 
 $GLOBALS["TL_LANG"]["tl_adressen"]["wertungsreferent"][0] = "Wertungsreferent";
 $GLOBALS["TL_LANG"]["tl_adressen"]["wertungsreferent"][1] = "Wählen Sie hier die Wertungsreferate der Person aus.";
 
-$GLOBALS["TL_LANG"]["tl_adressen"]["funktionen"][0] = "Andere Funktionen";
-$GLOBALS["TL_LANG"]["tl_adressen"]["funktionen"][1] = "Wählen Sie hier die Funktionen der Person aus.";
+$GLOBALS["TL_LANG"]["tl_adressen"]["funktionen"][0] = "Kategorien";
+$GLOBALS["TL_LANG"]["tl_adressen"]["funktionen"][1] = "Wählen Sie hier die Kategorien für die Person aus.";
 
 $GLOBALS["TL_LANG"]["tl_adressen"]["telefon_legende"] = "Telefon";
 
@@ -204,6 +204,8 @@ $GLOBALS["TL_LANG"]["tl_adressen"]["searchstring"][1] = "Daten für Volltextsuch
 /**
  * Buttons für Operationen
  */
+
+$GLOBALS['TL_LANG']['tl_adressen']['categories'] = array('Kategorien', 'Kategorien für die Adressen bearbeiten');
 
 $GLOBALS['TL_LANG']['tl_adressen']['import'][0] = 'CSV-Import';
 $GLOBALS['TL_LANG']['tl_adressen']['import'][1] = 'Daten aus einer CSV-Datei importieren';

@@ -12,7 +12,7 @@ if(!$GLOBALS['BE_MOD']['dsb'])
 }
 
 $GLOBALS["BE_MOD"]["dsb"]["adressen"] = array(
-	"tables"      => array("tl_adressen"),
+	"tables"      => array('tl_adressen', 'tl_adressen_categories'),
 	"icon"        => "system/modules/adressen/assets/images/icon.png",
 	"import"      => array("Adressen_Backend","importAdressen"),
 	"export"      => array("Adressen_Backend","exportAdressen"),

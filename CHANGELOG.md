@@ -1,5 +1,9 @@
 # Adressen Changelog
 
+## Version 1.3.0 (2017-12-08)
+
+- Add: Kategorien sind jetzt im BE verwaltbar
+
 ## Version 1.2.0 (2017-10-18)
 
 - Add: Kopieren von Adressen (Intranet) in die Zwischenablage eingebaut

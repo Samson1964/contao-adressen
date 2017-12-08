@@ -72,9 +72,21 @@ class Funktionen extends \Frontend
 	 * @param id	ID in DeWIS
 	 * @return		ID des Contao-Mitgliedes
 	 */
-	public static function getFunktionen()
+	public static function getFunktionen($inaktiv = true)
 	{
-		// Referate zuordnen
+		// Kategorien laden (neue Variante)
+		$arrCats = array();
+		$sql = $inaktiv ? '' : 'WHERE active = 1 ';
+		
+		$objResult = \Database::getInstance()->prepare('SELECT * FROM tl_adressen_categories '.$sql.'ORDER BY category')->execute();
+
+		while($objResult->next())
+		{
+			$arrCats[$objResult->id] = $objResult->category;
+		}
+		return $arrCats;
+
+		// Referate zuordnen (alte Variante)
 		$array = array
 		(
 			'prae'      => 'DSB-Präsidium',

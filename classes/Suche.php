@@ -178,7 +178,7 @@ class Suche extends \Module
 
 		// Weitere Templatevariablen
 		$this->Template->Suchbegriff = $this->suchbegriff;
-		$this->Template->Funktionen = \Samson\Adressen\Funktionen::getFunktionen();
+		$this->Template->Funktionen = \Samson\Adressen\Funktionen::getFunktionen(false);
 		$this->Template->Funktionsauswahl = $this->funktion;
 		$this->Template->Verknuepfung = $this->linken;
 		$this->Template->Liteversion = $this->liteversion;
