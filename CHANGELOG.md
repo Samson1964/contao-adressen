@@ -1,5 +1,10 @@
 # Adressen Changelog
 
+## Version 2.0.0 (2018-12-14)
+
+- Add: MCW eingebaut bei Anschriften, Emails und Telefon - funktioniert aber nur bei Anschriften
+- Fix: generateAlias um Umlautekonvertierung erweitert
+
 ## Version 1.3.0 (2017-12-08)
 
 - Add: Kategorien sind jetzt im BE verwaltbar

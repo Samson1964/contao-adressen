@@ -3,104 +3,66 @@
 /**
  * Backend-Modul: Übersetzungen im Eingabeformular
  */
-$GLOBALS["TL_LANG"]["tl_adressen"]["id"][0] = "ID";
-$GLOBALS["TL_LANG"]["tl_adressen"]["id"][1] = "ID dieser Adresse";
-
-$GLOBALS["TL_LANG"]["tl_adressen"]["tstamp"][0] = "Letzte Änderung";
-$GLOBALS["TL_LANG"]["tl_adressen"]["tstamp"][1] = "Zeitstempel der letzten Änderung";
+$GLOBALS["TL_LANG"]["tl_adressen"]["id"] = array("ID", "ID dieser Adresse");
+$GLOBALS["TL_LANG"]["tl_adressen"]["tstamp"] = array("Letzte Änderung", "Zeitstempel der letzten Änderung");
 
 $GLOBALS["TL_LANG"]["tl_adressen"]["person_legende"] = "Name und Firma";
-
-$GLOBALS["TL_LANG"]["tl_adressen"]["nachname"][0] = "Nachname";
-$GLOBALS["TL_LANG"]["tl_adressen"]["nachname"][1] = "Geben Sie hier den Nachnamen ein. Alternativ wäre auch der Vereins- oder Firmenname möglich.";
-
-$GLOBALS["TL_LANG"]["tl_adressen"]["vorname"][0] = "Vorname";
-$GLOBALS["TL_LANG"]["tl_adressen"]["vorname"][1] = "Geben Sie hier den Vornamen ein.";
-
-$GLOBALS["TL_LANG"]["tl_adressen"]["titel"][0] = "Titel";
-$GLOBALS["TL_LANG"]["tl_adressen"]["titel"][1] = "Geben Sie hier den Titel ein, z.B. Dr. oder Prof.Dr.";
-
-$GLOBALS["TL_LANG"]["tl_adressen"]["firma"][0] = "Firma";
-$GLOBALS["TL_LANG"]["tl_adressen"]["firma"][1] = "Geben Sie hier den Firmennamen ein.";
-
-$GLOBALS["TL_LANG"]["tl_adressen"]["club"][0] = "Verein";
-$GLOBALS["TL_LANG"]["tl_adressen"]["club"][1] = "Geben Sie hier den Verein der Person ein.";
+$GLOBALS["TL_LANG"]["tl_adressen"]["nachname"] = array("Nachname", "Geben Sie hier den Nachnamen ein. Alternativ wäre auch der Vereins- oder Firmenname möglich.");
+$GLOBALS["TL_LANG"]["tl_adressen"]["vorname"] = array("Vorname", "Geben Sie hier den Vornamen ein.");
+$GLOBALS["TL_LANG"]["tl_adressen"]["titel"] = array("Titel", "Geben Sie hier den Titel ein, z.B. Dr. oder Prof.Dr.");
+$GLOBALS["TL_LANG"]["tl_adressen"]["firma"] = array("Firma", "Geben Sie hier den Firmennamen ein.");
+$GLOBALS["TL_LANG"]["tl_adressen"]["club"] = array("Verein", "Geben Sie hier den Verein der Person ein.");
 
 $GLOBALS["TL_LANG"]["tl_adressen"]["adresse_legende"] = "Anschrift";
+$GLOBALS["TL_LANG"]["tl_adressen"]["strasse_view"] = array("Straße veröffentlichen", "Straße im Frontend anzeigen. Wird nur angezeigt, wenn auch PLZ und Ort öffentlich sind.");
+$GLOBALS["TL_LANG"]["tl_adressen"]["strasse"] = array("Straße", "Geben Sie hier die Straße ein.");
+$GLOBALS["TL_LANG"]["tl_adressen"]["ort_view"] = array("PLZ und Ort veröffentlichen", "PLZ und Ort im Frontend anzeigen");
+$GLOBALS["TL_LANG"]["tl_adressen"]["plz"] = array("PLZ", "Geben Sie hier die Postleitzahl ein.");
+$GLOBALS["TL_LANG"]["tl_adressen"]["ort"] = array("Ort", "Geben Sie hier den Ort ein.");
 
-$GLOBALS["TL_LANG"]["tl_adressen"]["strasse_view"][0] = "Straße veröffentlichen";
-$GLOBALS["TL_LANG"]["tl_adressen"]["strasse_view"][1] = "Straße im Frontend anzeigen. Wird nur angezeigt, wenn auch PLZ und Ort öffentlich sind.";
-
-$GLOBALS["TL_LANG"]["tl_adressen"]["strasse"][0] = "Straße";
-$GLOBALS["TL_LANG"]["tl_adressen"]["strasse"][1] = "Geben Sie hier die Straße ein.";
-
-$GLOBALS["TL_LANG"]["tl_adressen"]["ort_view"][0] = "PLZ und Ort veröffentlichen";
-$GLOBALS["TL_LANG"]["tl_adressen"]["ort_view"][1] = "PLZ und Ort im Frontend anzeigen";
-
-$GLOBALS["TL_LANG"]["tl_adressen"]["plz"][0] = "PLZ";
-$GLOBALS["TL_LANG"]["tl_adressen"]["plz"][1] = "Geben Sie hier die Postleitzahl ein.";
-
-$GLOBALS["TL_LANG"]["tl_adressen"]["ort"][0] = "Ort";
-$GLOBALS["TL_LANG"]["tl_adressen"]["ort"][1] = "Geben Sie hier den Ort ein.";
+$GLOBALS["TL_LANG"]["tl_adressen"]["adressen_legend"] = "Anschriften (neues Format)";
+$GLOBALS["TL_LANG"]["tl_adressen"]["adressen"] = array("Adressen", "");
+$GLOBALS["TL_LANG"]["tl_adressen"]["adressen_public_plzort"] = array("PLZ/Ort öffentlich", "PLZ und Ort im Frontend anzeigen");
+$GLOBALS["TL_LANG"]["tl_adressen"]["adressen_plz"] = array("PLZ", "Geben Sie hier die Postleitzahl ein.");
+$GLOBALS["TL_LANG"]["tl_adressen"]["adressen_ort"] = array("Ort", "Geben Sie hier den Ort ein.");
+$GLOBALS["TL_LANG"]["tl_adressen"]["adressen_public_str"] = array("Straße öffentlich", "Straße im Frontend anzeigen. Wird nur angezeigt, wenn auch PLZ und Ort öffentlich sind.");
+$GLOBALS["TL_LANG"]["tl_adressen"]["adressen_strasse"] = array("Straße", "Geben Sie hier die Straße ein.");
+$GLOBALS["TL_LANG"]["tl_adressen"]["adressen_googlemap"] = array("Googlemap verlinken", "Adresse mit GoogleMap verlinken");
 
 $GLOBALS["TL_LANG"]["tl_adressen"]["funktionen_legende"] = "Funktionen und Kategorien";
-
-$GLOBALS["TL_LANG"]["tl_adressen"]["wertungsreferent"][0] = "Wertungsreferent";
-$GLOBALS["TL_LANG"]["tl_adressen"]["wertungsreferent"][1] = "Wählen Sie hier die Wertungsreferate der Person aus.";
-
-$GLOBALS["TL_LANG"]["tl_adressen"]["funktionen"][0] = "Kategorien";
-$GLOBALS["TL_LANG"]["tl_adressen"]["funktionen"][1] = "Wählen Sie hier die Kategorien für die Person aus.";
+$GLOBALS["TL_LANG"]["tl_adressen"]["wertungsreferent"] = array("Wertungsreferent", "Wählen Sie hier die Wertungsreferate der Person aus.");
+$GLOBALS["TL_LANG"]["tl_adressen"]["funktionen"] = array("Kategorien", "Wählen Sie hier die Kategorien für die Person aus.");
 
 $GLOBALS["TL_LANG"]["tl_adressen"]["telefon_legende"] = "Telefon";
+$GLOBALS["TL_LANG"]["tl_adressen"]["telefon_view"] = array("Telefon veröffentlichen", "Alle Telefonnummern im Frontend anzeigen");
+$GLOBALS["TL_LANG"]["tl_adressen"]["telefon1"] = array("Telefon 1", "Geben Sie hier die erste Telefonnummer ein.");
+$GLOBALS["TL_LANG"]["tl_adressen"]["telefon2"] = array("Telefon 2", "Geben Sie hier die zweite Telefonnummer ein.");
+$GLOBALS["TL_LANG"]["tl_adressen"]["telefon3"] = array("Telefon 3", "Geben Sie hier die dritte Telefonnummer ein.");
+$GLOBALS["TL_LANG"]["tl_adressen"]["telefon4"] = array("Telefon 4", "Geben Sie hier die vierte Telefonnummer ein.");
 
-$GLOBALS["TL_LANG"]["tl_adressen"]["telefon_view"][0] = "Telefon veröffentlichen";
-$GLOBALS["TL_LANG"]["tl_adressen"]["telefon_view"][1] = "Alle Telefonnummern im Frontend anzeigen";
-
-$GLOBALS["TL_LANG"]["tl_adressen"]["telefon1"][0] = "Telefon 1";
-$GLOBALS["TL_LANG"]["tl_adressen"]["telefon1"][1] = "Geben Sie hier die erste Telefonnummer ein.";
-
-$GLOBALS["TL_LANG"]["tl_adressen"]["telefon2"][0] = "Telefon 2";
-$GLOBALS["TL_LANG"]["tl_adressen"]["telefon2"][1] = "Geben Sie hier eine zweite Telefonnummer ein.";
-
-$GLOBALS["TL_LANG"]["tl_adressen"]["telefon3"][0] = "Telefon 3";
-$GLOBALS["TL_LANG"]["tl_adressen"]["telefon3"][1] = "Geben Sie hier eine dritte Telefonnummer ein.";
-
-$GLOBALS["TL_LANG"]["tl_adressen"]["telefon4"][0] = "Telefon 4";
-$GLOBALS["TL_LANG"]["tl_adressen"]["telefon4"][1] = "Geben Sie hier eine vierte Telefonnummer ein.";
+$GLOBALS["TL_LANG"]["tl_adressen"]["telefone_legend"] = "Telefonnummern (neues Format)";
+$GLOBALS["TL_LANG"]["tl_adressen"]["telefone"] = array("Nummern", "");
+$GLOBALS["TL_LANG"]["tl_adressen"]["telefone_public_num"] = array("Nummer öffentlich", "Telefonnummer im Frontend anzeigen");
+$GLOBALS["TL_LANG"]["tl_adressen"]["telefone_nummer"] = array("Nummer", "Geben Sie hier die Telefonnummer ein.");
 
 $GLOBALS["TL_LANG"]["tl_adressen"]["telefax_legende"] = "Telefax";
-
-$GLOBALS["TL_LANG"]["tl_adressen"]["telefax_view"][0] = "Telefax veröffentlichen";
-$GLOBALS["TL_LANG"]["tl_adressen"]["telefax_view"][1] = "Telefaxnummern im Frontend anzeigen";
-
-$GLOBALS["TL_LANG"]["tl_adressen"]["telefax1"][0] = "Telefax 1";
-$GLOBALS["TL_LANG"]["tl_adressen"]["telefax1"][1] = "Geben Sie hier die erste Telefaxnummer ein.";
-
-$GLOBALS["TL_LANG"]["tl_adressen"]["telefax2"][0] = "Telefax 2";
-$GLOBALS["TL_LANG"]["tl_adressen"]["telefax2"][1] = "Geben Sie hier eine zweite Telefaxnummer ein.";
+$GLOBALS["TL_LANG"]["tl_adressen"]["telefax_view"] = array("Telefax veröffentlichen", "Telefaxnummern im Frontend anzeigen");
+$GLOBALS["TL_LANG"]["tl_adressen"]["telefax1"] = array("Telefax 1", "Geben Sie hier die erste Telefaxnummer ein.");
+$GLOBALS["TL_LANG"]["tl_adressen"]["telefax2"] = array("Telefax 2", "Geben Sie hier eine zweite Telefaxnummer ein.");
 
 $GLOBALS["TL_LANG"]["tl_adressen"]["email_legende"] = "E-Mail";
+$GLOBALS["TL_LANG"]["tl_adressen"]["email_view"] = array("E-Mail veröffentlichen", "E-Mail-Adressen im Frontend anzeigen");
+$GLOBALS["TL_LANG"]["tl_adressen"]["email1"] = array("E-Mail 1", "Geben Sie hier die erste E-Mail-Adresse ein.");
+$GLOBALS["TL_LANG"]["tl_adressen"]["email2"] = array("E-Mail 2", "Geben Sie hier die zweite E-Mail-Adresse ein.");
+$GLOBALS["TL_LANG"]["tl_adressen"]["email3"] = array("E-Mail 3", "Geben Sie hier die dritte E-Mail-Adresse ein.");
+$GLOBALS["TL_LANG"]["tl_adressen"]["email4"] = array("E-Mail 4", "Geben Sie hier die vierte E-Mail-Adresse ein.");
+$GLOBALS["TL_LANG"]["tl_adressen"]["email5"] = array("E-Mail 5", "Geben Sie hier die fünfte E-Mail-Adresse ein.");
+$GLOBALS["TL_LANG"]["tl_adressen"]["email6"] = array("E-Mail 6", "Geben Sie hier die sechste E-Mail-Adresse ein.");
 
-$GLOBALS["TL_LANG"]["tl_adressen"]["email_view"][0] = "E-Mail veröffentlichen";
-$GLOBALS["TL_LANG"]["tl_adressen"]["email_view"][1] = "E-Mail-Adressen im Frontend anzeigen";
-
-$GLOBALS["TL_LANG"]["tl_adressen"]["email1"][0] = "E-Mail 1";
-$GLOBALS["TL_LANG"]["tl_adressen"]["email1"][1] = "Geben Sie hier die erste E-Mail-Adresse ein.";
-
-$GLOBALS["TL_LANG"]["tl_adressen"]["email2"][0] = "E-Mail 2";
-$GLOBALS["TL_LANG"]["tl_adressen"]["email2"][1] = "Geben Sie hier eine zweite E-Mail-Adresse ein.";
-
-$GLOBALS["TL_LANG"]["tl_adressen"]["email3"][0] = "E-Mail 3";
-$GLOBALS["TL_LANG"]["tl_adressen"]["email3"][1] = "Geben Sie hier eine dritte E-Mail-Adresse ein.";
-
-$GLOBALS["TL_LANG"]["tl_adressen"]["email4"][0] = "E-Mail 4";
-$GLOBALS["TL_LANG"]["tl_adressen"]["email4"][1] = "Geben Sie hier eine vierte E-Mail-Adresse ein.";
-
-$GLOBALS["TL_LANG"]["tl_adressen"]["email5"][0] = "E-Mail 5";
-$GLOBALS["TL_LANG"]["tl_adressen"]["email5"][1] = "Geben Sie hier eine fünfte E-Mail-Adresse ein.";
-
-$GLOBALS["TL_LANG"]["tl_adressen"]["email6"][0] = "E-Mail 6";
-$GLOBALS["TL_LANG"]["tl_adressen"]["email6"][1] = "Geben Sie hier eine sechste E-Mail-Adresse ein.";
+$GLOBALS["TL_LANG"]["tl_adressen"]["emails_legend"] = "E-Mails (neues Format)";
+$GLOBALS["TL_LANG"]["tl_adressen"]["emails"] = array("Adressen", "");
+$GLOBALS["TL_LANG"]["tl_adressen"]["emails_public_mail"] = array("E-Mail öffentlich", "E-Mail-Adresse im Frontend anzeigen");
+$GLOBALS["TL_LANG"]["tl_adressen"]["emails_mail"] = array("Adresse", "Geben Sie hier die E-Mail-Adresse ein.");
 
 $GLOBALS["TL_LANG"]["tl_adressen"]["bank_legend"] = "Bankverbindung";
 

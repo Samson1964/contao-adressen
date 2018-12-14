@@ -67,6 +67,8 @@
 		<span class="adr_adresse"><a class="google" target="_blank" href="http://maps.google.de/maps?hl=de&t=h&iwloc=addr&q=<?php echo $this->adresse ?>" title="Adresse in Googlemap suchen"><?php echo $this->adresse ?></a></span><br />
 	<?php endif; ?>
 
+	<?php if($this->adressen): ?><?= $this->adressen ?><?php endif; ?>
+
 	<?php if($this->telefon_fest): ?>
 		<?php $i = 0; ?>
 		<?php foreach($this->telefon_fest as $item): ?>

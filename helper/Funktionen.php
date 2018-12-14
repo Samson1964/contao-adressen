@@ -68,6 +68,20 @@ class Funktionen extends \Frontend
 
 
 	/**
+	 * Führt Contao's generateAlias aus und modifiziert ggfs. das Ergebnis
+	 * @param string	String, der geglättet werden soll
+	 * @return			fertiger String
+	 */
+	public static function generateAlias($string)
+	{
+		$string = \StringUtil::generateAlias($string);
+		$search  = array('Ä', 'Ö', 'Ü', 'ä', 'ö', 'ü', 'ß');
+		$replace = array('ae', 'oe', 'ue', 'ae', 'oe', 'ue', 'ss');
+		return str_replace($search, $replace, $string);
+	}
+
+
+	/**
 	 * Gibt ein Array mit den Funktionen zurück
 	 * @param id	ID in DeWIS
 	 * @return		ID des Contao-Mitgliedes

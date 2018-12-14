@@ -88,11 +88,14 @@ class adresseClass extends \ContentElement
 				if($this->adresse_selectmails)
 				{
 					$erlaubtArr = unserialize($this->adresse_mails);
-					for($x=1; $x<=6; $x++)
+					if(is_array($erlaubtArr))
 					{
-						if(in_array($x, $erlaubtArr) == false) 
+						for($x=1; $x<=6; $x++)
 						{
-							$mailErlaubtArr[$x] = false;
+							if(in_array($x, $erlaubtArr) == false) 
+							{
+								$mailErlaubtArr[$x] = false;
+							}
 						}
 					}
 				}
@@ -158,6 +161,7 @@ class adresseClass extends \ContentElement
 				$this->Template->vorname       = $objAdresse->vorname ;
 				$this->Template->titel         = $objAdresse->titel   ;
 				$this->Template->firma         = $objAdresse->firma   ;
+				$this->Template->adressen      = $this->getAdressen($objAdresse); // Übergabe der Adressen im alten und neuen Format
 				$this->Template->strasse       = $objAdresse->strasse ;
 				$this->Template->plz           = $objAdresse->plz     ;
 				$this->Template->ort           = $objAdresse->ort     ;
@@ -190,6 +194,65 @@ class adresseClass extends \ContentElement
 		}
 
 		return;
+
+	}
+
+	/**
+	 * Funktion getAdressen
+	 * @param $objekt: Objekt mit dem Datensatz aus der Datenbank
+	 * @return: öffentliche Adressen als HTML-String
+	 */
+	static function getAdressen($objekt)
+	{
+
+		$return = ''; // Rückgabe aller Adressen im HTML-Format
+		$prefix = '<div class="adr_adresse">'; // Wird vor die Adresse gesetzt
+		$google = array
+		(
+			0 => '<a class="google" target="_blank" href="https://maps.google.de/maps?hl=de&t=h&iwloc=addr&q=',
+			1 => '" title="Adresse in Googlemap suchen">',
+			2 => '</a>'
+		); // Link GoogleMap. Adresse wird zwischen 0 und 1 sowie 1 und 2 eingesetzt
+		$suffix = '</div>'; // Wird an die Adresse angehangen
+
+		// Adresse (altes Format) zusammenbauen, wenn etwas angezeigt werden soll
+		if($objekt->ort_view)
+		{
+			$adresse = ''; // Speichert die reine Adresse
+			// PLZ und Ort darf angezeigt werden
+			if($objekt->strasse_view)
+			{
+				// Straße darf angezeigt werden
+				$adresse .= $objekt->strasse ? $objekt->strasse.', ' : $adresse;
+			}
+			$adresse .= $objekt->plz ? $objekt->plz : '';
+			$adresse .= $objekt->ort ? ' '.$objekt->ort : '';
+			// Adresse speichern für Rückgabe
+			$return = $prefix.$google[0].$adresse.$google[1].$adresse.$google[2].$suffix;
+		}
+
+		// Adressen (neues Format) zusammenbauen
+		$dataArr = unserialize($objekt->adressen);
+		foreach($dataArr as $data)
+		{
+			$adresse = '';
+			if($data['public_plzort'])
+			{
+				// PLZ und Ort darf angezeigt werden
+				if($data['public_str'])
+				{
+					// Straße darf angezeigt werden
+					$adresse .= $data['strasse'] ? $data['strasse'].', ' : $adresse;
+				}
+				$adresse .= $data['plz'] ? $data['plz'] : '';
+				$adresse .= $data['ort'] ? ' '.$data['ort'] : '';
+				// Adresse speichern für Rückgabe
+				if($data['googlemap'] && $adresse) $return .= $prefix.$google[0].$adresse.$google[1].$adresse.$google[2].$suffix;
+				elseif($adresse) $return .= $prefix.$adresse.$suffix;
+			}
+		}
+
+		return $return;
 
 	}
 

@@ -111,7 +111,7 @@ $GLOBALS['TL_DCA']['tl_adressen'] = array
 	'palettes' => array
 	(
 		'__selector__'                => array('addImage'),
-		'default'                     => '{person_legende},nachname,vorname,titel,firma,club;{adresse_legende:hide},plz,ort,ort_view,strasse,strasse_view;{telefon_legende:hide},telefon1,telefon2,telefon3,telefon4,telefon_view;{telefax_legende:hide},telefax1,telefax2,telefax_view;{email_legende:hide},email1,email2,email3,email4,email5,email6,email_view;{bank_legend},inhaber,iban,bic;{funktionen_legende:hide},wertungsreferent,funktionen;{web_legende:hide},homepage,facebook,twitter,google,icq,yahoo,aim,msn,irc;{image_legend:hide},addImage;{text_legende:hide},text;{info_legende:hide},info,links,source;{aktiv_legende},aktiv;{alias_legende},alias'
+		'default'                     => '{person_legende},nachname,vorname,titel,firma,club;{adresse_legende:hide},plz,ort,ort_view,strasse,strasse_view;{adressen_legend:hide},adressen;{telefon_legende:hide},telefon1,telefon2,telefon3,telefon4,telefon_view;{telefone_legend:hide},telefone;{telefax_legende:hide},telefax1,telefax2,telefax_view;{email_legende:hide},email1,email2,email3,email4,email5,email6,email_view;{emails_legend:hide},emails;{bank_legend},inhaber,iban,bic;{funktionen_legende:hide},wertungsreferent,funktionen;{web_legende:hide},homepage,facebook,twitter,google,icq,yahoo,aim,msn,irc;{image_legend:hide},addImage;{text_legende:hide},text;{info_legende:hide},info,links,source;{aktiv_legende},aktiv;{alias_legende},alias'
 	),
 
 	// Unterpaletten
@@ -197,6 +197,10 @@ $GLOBALS['TL_DCA']['tl_adressen'] = array
 			'exclude'                 => true,
 			'default'                 => true,
 			'inputType'               => 'checkbox',
+			'eval'                    => array
+			(
+				'tl_class'            => 'w50'
+			),
 			'sql'                     => "char(1) NOT NULL default '1'"
 		),
 		'plz' => array
@@ -243,6 +247,84 @@ $GLOBALS['TL_DCA']['tl_adressen'] = array
 			'eval'                    => array('mandatory'=>false, 'maxlength'=>255, 'tl_class'=>'w50'),
 			'sql'                     => "varchar(255) NOT NULL default ''"
 		),
+		'adressen' => array
+		(
+			'label'                   => &$GLOBALS['TL_LANG']['tl_adressen']['adressen'],
+			'exclude'                 => true,
+			'inputType'               => 'multiColumnWizard',
+			'eval'                    => array
+			(
+				'tl_class'            => 'clr',
+				'buttonPos'           => 'top',
+				'columnFields'        => array
+				(
+					'public_plzort' => array
+					(
+						'label'                 => &$GLOBALS['TL_LANG']['tl_adressen']['adressen_public_plzort'],
+						'exclude'               => true,
+						'inputType'             => 'checkbox',
+						'eval'                  => array
+						(
+							'style'             => 'width: 20px',
+							'valign'            => 'middle'
+						)
+					),
+					'plz' => array
+					(
+						'label'                 => &$GLOBALS['TL_LANG']['tl_adressen']['adressen_plz'],
+						'exclude'               => true,
+						'inputType'             => 'text',
+						'eval'                  => array
+						(
+							'style'             => 'width: 50px',
+						),
+					),
+					'ort' => array
+					(
+						'label'                 => &$GLOBALS['TL_LANG']['tl_adressen']['adressen_ort'],
+						'exclude'               => true,
+						'inputType'             => 'text',
+						'eval'                  => array
+						(
+							'style'             => 'width: 140px',
+						)
+					),
+					'public_str' => array
+					(
+						'label'                 => &$GLOBALS['TL_LANG']['tl_adressen']['adressen_public_str'],
+						'exclude'               => true,
+						'inputType'             => 'checkbox',
+						'eval'                  => array
+						(
+							'style'             => 'width: 20px',
+							'valign'            => 'middle'
+						)
+					),
+					'strasse' => array
+					(
+						'label'                 => &$GLOBALS['TL_LANG']['tl_adressen']['adressen_strasse'],
+						'exclude'               => true,
+						'inputType'             => 'text',
+						'eval'                  => array
+						(
+							'style'             => 'width: 200px',
+						)
+					),
+					'googlemap' => array
+					(
+						'label'                 => &$GLOBALS['TL_LANG']['tl_adressen']['adressen_googlemap'],
+						'exclude'               => true,
+						'inputType'             => 'checkbox',
+						'eval'                  => array
+						(
+							'style'             => 'width: 20px',
+							'valign'            => 'middle'
+						)
+					),
+				)
+			),
+			'sql'                   => "blob NULL"
+		),
 		'wertungsreferent' => array
 		(
 			'label'                   => &$GLOBALS['TL_LANG']['tl_adressen']['wertungsreferent'],
@@ -269,6 +351,10 @@ $GLOBALS['TL_DCA']['tl_adressen'] = array
 			'exclude'                 => true,
 			'default'                 => true,
 			'inputType'               => 'checkbox',
+			'eval'                    => array
+			(
+				'tl_class'            => 'w50'
+			),
 			'sql'                     => "char(1) NOT NULL default '1'"
 		),
 		'telefon1' => array
@@ -315,12 +401,52 @@ $GLOBALS['TL_DCA']['tl_adressen'] = array
 			'eval'                    => array('mandatory'=>false, 'maxlength'=>64, 'tl_class'=>'w50'),
 			'sql'                     => "varchar(64) NOT NULL default ''"
 		),
+		'telefone' => array
+		(
+			'label'                   => &$GLOBALS['TL_LANG']['tl_adressen']['telefone'],
+			'exclude'                 => true,
+			'inputType'               => 'multiColumnWizard',
+			'eval'                    => array
+			(
+				'tl_class'            => 'clr',
+				'buttonPos'           => 'top',
+				'columnFields'        => array
+				(
+					'public_num' => array
+					(
+						'label'                 => &$GLOBALS['TL_LANG']['tl_adressen']['telefone_public_num'],
+						'exclude'               => true,
+						'inputType'             => 'checkbox',
+						'eval'                  => array
+						(
+							'style'             => 'width: 20px',
+							'valign'            => 'middle'
+						)
+					),
+					'nummer' => array
+					(
+						'label'                 => &$GLOBALS['TL_LANG']['tl_adressen']['telefone_nummer'],
+						'exclude'               => true,
+						'inputType'             => 'text',
+						'eval'                  => array
+						(
+							'style'             => 'width: 200px',
+						)
+					),
+				)
+			),
+			'sql'                   => "blob NULL"
+		),
 		'telefax_view' => array
 		(
 			'label'                   => &$GLOBALS['TL_LANG']['tl_adressen']['telefax_view'],
 			'exclude'                 => true,
 			'default'                 => true,
 			'inputType'               => 'checkbox',
+			'eval'                    => array
+			(
+				'tl_class'            => 'w50'
+			),
 			'sql'                     => "char(1) NOT NULL default '1'"
 		),
 		'telefax1' => array
@@ -351,6 +477,10 @@ $GLOBALS['TL_DCA']['tl_adressen'] = array
 			'exclude'                 => true,
 			'default'                 => true,
 			'inputType'               => 'checkbox',
+			'eval'                    => array
+			(
+				'tl_class'            => 'w50'
+			),
 			'sql'                     => "char(1) NOT NULL default '1'"
 		),
 		'email1' => array
@@ -418,6 +548,43 @@ $GLOBALS['TL_DCA']['tl_adressen'] = array
 			'search'                  => true,
 			'eval'                    => array('mandatory'=>false, 'maxlength'=>255, 'tl_class'=>'w50', 'rgxp'=>'email'),
 			'sql'                     => "varchar(255) NOT NULL default ''"
+		),
+		'emails' => array
+		(
+			'label'                   => &$GLOBALS['TL_LANG']['tl_adressen']['emails'],
+			'exclude'                 => true,
+			'inputType'               => 'multiColumnWizard',
+			'eval'                    => array
+			(
+				'tl_class'            => 'clr',
+				'buttonPos'           => 'top',
+				'columnFields'        => array
+				(
+					'public_mail' => array
+					(
+						'label'                 => &$GLOBALS['TL_LANG']['tl_adressen']['emails_public_mail'],
+						'exclude'               => true,
+						'inputType'             => 'checkbox',
+						'eval'                  => array
+						(
+							'style'             => 'width: 20px',
+							'valign'            => 'middle'
+						)
+					),
+					'mail' => array
+					(
+						'label'                 => &$GLOBALS['TL_LANG']['tl_adressen']['emails_mail'],
+						'exclude'               => true,
+						'inputType'             => 'text',
+						'eval'                  => array
+						(
+							'style'             => 'width: 300px',
+							'rgxp'              => 'email'
+						)
+					),
+				)
+			),
+			'sql'                   => "blob NULL"
 		),
 		'inhaber' => array
 		(
@@ -556,7 +723,11 @@ $GLOBALS['TL_DCA']['tl_adressen'] = array
 			'label'                   => &$GLOBALS['TL_LANG']['tl_adressen']['addImage'],
 			'exclude'                 => true,
 			'inputType'               => 'checkbox',
-			'eval'                    => array('submitOnChange'=>true),
+			'eval'                    => array
+			(
+				'submitOnChange'      => true,
+				'tl_class'            => 'w50'
+			),
 			'sql'                     => "char(1) NOT NULL default ''"
 		), 
 		'singleSRC' => array
@@ -826,7 +997,7 @@ class tl_adressen extends Backend
 		if ($varValue == '')
 		{
 			$autoAlias = true;
-			$varValue = standardize(String::restoreBasicEntities($dc->activeRecord->nachname.'-'.$dc->activeRecord->vorname));
+			$varValue = standardize(\StringUtil::restoreBasicEntities($dc->activeRecord->nachname.'-'.$dc->activeRecord->vorname));
 		}
 
 		$objAlias = $this->Database->prepare("SELECT id FROM tl_adressen WHERE alias=?")
@@ -877,7 +1048,7 @@ class tl_adressen extends Backend
 		$temp .= '-'.$dc->activeRecord->text;
 		$temp .= '-'.$dc->activeRecord->info;
 
-		$temp = StringUtil::generateAlias($temp);
+		$temp = \Samson\Adressen\Funktionen::getFunktionen($temp);
 		\Database::getInstance()->prepare("UPDATE tl_adressen SET searchstring=? WHERE id=?")
 		                        ->execute($temp, $dc->id);
 	}
